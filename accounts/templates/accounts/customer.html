@@ -1,0 +1,116 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="row">
+    <!-- /.col -->
+    <div class=" col-md-4">
+        <div class="info-box bg-dark">
+            <span class="info-box-icon"><i class="fas fa-user"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Customer:</span>
+                <span class="info-box-text pt-3 pb-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="" class="btn btn-block btn-outline-success">Update Customer</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="" class="btn btn-block btn-outline-danger">Delete Customer</a>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.card -->
+    <!-- /.col -->
+    <div class=" col-md-4">
+        <div class="info-box bg-primary">
+            <span class="info-box-icon"><i class="far fa-user"></i></span>
+
+            <div class="info-box-content pb-2">
+                <span class="info-box-text">Customer Information</span>
+                <span class="info-box-text">Email: {{customer.email}}</span>
+                <span class="info-box-number">Phone: {{customer.phone}}</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.card -->
+
+    <!-- /.col -->
+    <div class=" col-md-4">
+        <div class="info-box bg-info">
+            <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text ">Total Orders</span>
+                <div class="pt-3 pb-3">
+                    <span class="info-box-number">{{total_orders}}</span>
+                </div>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.card -->
+
+</div>
+<div class="row m-5">
+    <div class="col-md-8 offset-md-2">
+        <form action="simple-results.html">
+            <div class="input-group">
+                <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-lg btn-default">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Orders</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Date Ordered</th>
+                            <th>Status</th>
+                            <th>Update</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>{{order.product}}</td>
+                            <td>{{order.product.category}}</td>
+                            <td>{{order.date_created}}</td>
+                            <td>{{order.status}}</td>
+                            <td><a href="" class="btn btn-success">Update</a></td>
+                            <td><a href="" class="btn btn-danger">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+
+
+{% endblock %}
